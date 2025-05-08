@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Powerplay Premier League</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(#002f4b, #dc4225);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 60px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .admin-login {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .logo {
+      display: block;
+      margin: 30px auto 10px;
+      max-width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <img src="file-PA56Eg3RtYXzixydr27a33" alt="Powerplay Logo" class="logo" />
+  <h1>Powerplay Premier League</h1>
+
+  <div class="container" id="registrationForm">
+    <h2>Cricket Registration</h2>
+    <input type="text" placeholder="Full Name" required />
+    <input type="number" placeholder="Age" required />
+    <select required>
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="email" placeholder="Email Address" required />
+    <input type="tel" placeholder="Phone Number (+91)" pattern="[0-9]{10}" required />
+    <button type="submit">Register</button>
+    <div class="admin-login">
+      <button onclick="showAdminLogin()">Admin Login</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="adminLogin">
+    <h2>Admin Login</h2>
+    <input type="text" id="adminUser" placeholder="Username" />
+    <input type="password" id="adminPass" placeholder="Password" />
+    <button onclick="loginAdmin()">Login</button>
+    <div class="admin-login">
+      <button onclick="hideAdminLogin()">Back</button>
+    </div>
+  </div>
+
+  <script>
+    function showAdminLogin() {
+      document.getElementById('registrationForm').classList.add('hidden');
+      document.getElementById('adminLogin').classList.remove('hidden');
+    }
+
+    function hideAdminLogin() {
+      document.getElementById('registrationForm').classList.remove('hidden');
+      document.getElementById('adminLogin').classList.add('hidden');
+    }
+
+    function loginAdmin() {
+      const user = document.getElementById('adminUser').value;
+      const pass = document.getElementById('adminPass').value;
+      if (user === 'roniljain' && pass === 'powerplay #360') {
+        alert('Admin login successful!');
+      } else {
+        alert('Invalid credentials!');
+      }
+    }
+  </script>
+</body>
+</html>
